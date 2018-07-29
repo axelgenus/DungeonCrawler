@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dungeonpbem.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dungeonpbem.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dungeonpbem.net/">
+      <s:element name="GetActionAttackList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mapID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActionAttackListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActionAttackListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="deviceID" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="typeCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterDeviceResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="previousID" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipientList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventPlace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="weatherID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="igMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ogMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agpg" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="round" type="s:unsignedShort" />
+            <s:element minOccurs="1" maxOccurs="1" name="mapID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPublic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="draft" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="highlight" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPostResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postID" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="recipientList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventPlace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="weatherID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="igMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ogMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agpg" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="round" type="s:unsignedShort" />
+            <s:element minOccurs="1" maxOccurs="1" name="mapID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPublic" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="draft" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="highlight" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePostResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postID" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeletePostResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageNumber" type="s:unsignedShort" />
+            <s:element minOccurs="1" maxOccurs="1" name="recordQuantity" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxLength" type="s:unsignedShort" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxLength" type="s:unsignedShort" />
+            <s:element minOccurs="0" maxOccurs="1" name="filterDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostListUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostListUpdateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostSingle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="postID" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostSingleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostSingleResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChatList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChatListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChatListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampaignList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampaignListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCampaignListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeatherList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWeatherListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWeatherListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMapList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMapListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMapListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampaignPCList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCampaignPCListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCampaignPCListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCharacterAllyList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCharacterAllyListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCharacterAllyListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCharacterSheet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="campaignID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="characterID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="displayCharacterID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCharacterSheetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCharacterSheetResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Chat">
+        <s:complexType />
+      </s:element>
+      <s:element name="ChatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChatResult" type="tns:ChatRoom" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChatRoom" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetActionAttackListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActionAttackList" />
+  </wsdl:message>
+  <wsdl:message name="GetActionAttackListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActionAttackListResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterDevice" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPostSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPost" />
+  </wsdl:message>
+  <wsdl:message name="AddPostSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePost" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePostResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePostSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePost" />
+  </wsdl:message>
+  <wsdl:message name="DeletePostSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePostResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostList" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostListUpdate" />
+  </wsdl:message>
+  <wsdl:message name="GetPostListUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostListUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostSingleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostSingle" />
+  </wsdl:message>
+  <wsdl:message name="GetPostSingleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChatListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChatList" />
+  </wsdl:message>
+  <wsdl:message name="GetChatListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChatListResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCampaignListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCampaignList" />
+  </wsdl:message>
+  <wsdl:message name="GetCampaignListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCampaignListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWeatherListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWeatherList" />
+  </wsdl:message>
+  <wsdl:message name="GetWeatherListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWeatherListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMapListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMapList" />
+  </wsdl:message>
+  <wsdl:message name="GetMapListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMapListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCampaignPCListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCampaignPCList" />
+  </wsdl:message>
+  <wsdl:message name="GetCampaignPCListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCampaignPCListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCharacterAllyListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCharacterAllyList" />
+  </wsdl:message>
+  <wsdl:message name="GetCharacterAllyListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCharacterAllyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCharacterSheetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCharacterSheet" />
+  </wsdl:message>
+  <wsdl:message name="GetCharacterSheetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCharacterSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChatSoapIn">
+    <wsdl:part name="parameters" element="tns:Chat" />
+  </wsdl:message>
+  <wsdl:message name="ChatSoapOut">
+    <wsdl:part name="parameters" element="tns:ChatResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DungeonXMLSoap">
+    <wsdl:operation name="GetActionAttackList">
+      <wsdl:input message="tns:GetActionAttackListSoapIn" />
+      <wsdl:output message="tns:GetActionAttackListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDevice">
+      <wsdl:input message="tns:RegisterDeviceSoapIn" />
+      <wsdl:output message="tns:RegisterDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPost">
+      <wsdl:input message="tns:AddPostSoapIn" />
+      <wsdl:output message="tns:AddPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePost">
+      <wsdl:input message="tns:UpdatePostSoapIn" />
+      <wsdl:output message="tns:UpdatePostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePost">
+      <wsdl:input message="tns:DeletePostSoapIn" />
+      <wsdl:output message="tns:DeletePostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostList">
+      <wsdl:input message="tns:GetPostListSoapIn" />
+      <wsdl:output message="tns:GetPostListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListUpdate">
+      <wsdl:input message="tns:GetPostListUpdateSoapIn" />
+      <wsdl:output message="tns:GetPostListUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostSingle">
+      <wsdl:input message="tns:GetPostSingleSoapIn" />
+      <wsdl:output message="tns:GetPostSingleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChatList">
+      <wsdl:input message="tns:GetChatListSoapIn" />
+      <wsdl:output message="tns:GetChatListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignList">
+      <wsdl:input message="tns:GetCampaignListSoapIn" />
+      <wsdl:output message="tns:GetCampaignListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeatherList">
+      <wsdl:input message="tns:GetWeatherListSoapIn" />
+      <wsdl:output message="tns:GetWeatherListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMapList">
+      <wsdl:input message="tns:GetMapListSoapIn" />
+      <wsdl:output message="tns:GetMapListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignPCList">
+      <wsdl:input message="tns:GetCampaignPCListSoapIn" />
+      <wsdl:output message="tns:GetCampaignPCListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacterAllyList">
+      <wsdl:input message="tns:GetCharacterAllyListSoapIn" />
+      <wsdl:output message="tns:GetCharacterAllyListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacterSheet">
+      <wsdl:input message="tns:GetCharacterSheetSoapIn" />
+      <wsdl:output message="tns:GetCharacterSheetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Chat">
+      <wsdl:input message="tns:ChatSoapIn" />
+      <wsdl:output message="tns:ChatSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DungeonXMLSoap" type="tns:DungeonXMLSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActionAttackList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetActionAttackList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDevice">
+      <soap:operation soapAction="http://dungeonpbem.net/RegisterDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPost">
+      <soap:operation soapAction="http://dungeonpbem.net/AddPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePost">
+      <soap:operation soapAction="http://dungeonpbem.net/UpdatePost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePost">
+      <soap:operation soapAction="http://dungeonpbem.net/DeletePost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetPostList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListUpdate">
+      <soap:operation soapAction="http://dungeonpbem.net/GetPostListUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostSingle">
+      <soap:operation soapAction="http://dungeonpbem.net/GetPostSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChatList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetChatList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://dungeonpbem.net/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetCampaignList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeatherList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetWeatherList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetMapList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignPCList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetCampaignPCList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacterAllyList">
+      <soap:operation soapAction="http://dungeonpbem.net/GetCharacterAllyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacterSheet">
+      <soap:operation soapAction="http://dungeonpbem.net/GetCharacterSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Chat">
+      <soap:operation soapAction="http://dungeonpbem.net/Chat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DungeonXMLSoap12" type="tns:DungeonXMLSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetActionAttackList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetActionAttackList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDevice">
+      <soap12:operation soapAction="http://dungeonpbem.net/RegisterDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPost">
+      <soap12:operation soapAction="http://dungeonpbem.net/AddPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePost">
+      <soap12:operation soapAction="http://dungeonpbem.net/UpdatePost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePost">
+      <soap12:operation soapAction="http://dungeonpbem.net/DeletePost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetPostList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostListUpdate">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetPostListUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPostSingle">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetPostSingle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChatList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetChatList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://dungeonpbem.net/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetCampaignList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeatherList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetWeatherList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMapList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetMapList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignPCList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetCampaignPCList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacterAllyList">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetCharacterAllyList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharacterSheet">
+      <soap12:operation soapAction="http://dungeonpbem.net/GetCharacterSheet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Chat">
+      <soap12:operation soapAction="http://dungeonpbem.net/Chat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DungeonXML">
+    <wsdl:port name="DungeonXMLSoap" binding="tns:DungeonXMLSoap">
+      <soap:address location="http://www.dungeonpbem.net/User/DungeonXML.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DungeonXMLSoap12" binding="tns:DungeonXMLSoap12">
+      <soap12:address location="http://www.dungeonpbem.net/User/DungeonXML.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
